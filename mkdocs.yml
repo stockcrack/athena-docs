@@ -1,0 +1,107 @@
+site_name: Athena AI Documentation
+copyright: Copyright &copy; 2024 Athena Decision Systems
+repo_url: https://github.com/AthenaDecisionSystems/athena-docs
+extra_css: 
+  - stylesheets/extra.css
+theme:
+  name: material
+  logo: assets/owl.png
+  favicon: assets/owl.png
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    #- navigation.path
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: en
+
+  palette:
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      accent: purple       
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+      accent: lime  
+
+# Page tree
+nav:
+  - Home: index.md
+  - Get started:
+    - Run a demo: Get started/1-Run a demo.md
+    - Install and run on Mac: Get started/2-Install and run on Mac.md
+    - Install and run on Windows: Get started/3-Install and run on Windows.md
+
+  - Develop:
+    - Anatomy of a solution: Develop/1-Anatomy of a solution.md
+    - Developer's roadmap: Develop/2-Developers roadmap.md
+
+    - Tutorials:
+      - Overview: Develop/3-Tutorials/index.md
+      - "Agent Backend":
+        - Agent with single LLM: Develop/3-Tutorials/Backend/Simple agent.md
+        - RAG: Develop/3-Tutorials/Backend/RAG.md
+        - Tool calling to data and decision services: Develop/3-Tutorials/Backend/Tool calling.md
+        - Human in the loop: Develop/3-Tutorials/Backend/Human in the loop.md
+
+      - "Using various LLM providers":
+        - Local LLM: tutorials/blogs/engage.md
+        - Mistral: tutorials/blogs/engage.md
+        - OpenAI: tutorials/blogs/engage.md
+        - IBM Granite: tutorials/blogs/engage.md
+
+      - "Frontend":
+        - Customize the chatbot frontend: tutorials/blogs/basic.md
+        - Integrate the Owl chatbot widget: tutorials/blogs/basic.md
+
+    - Reference:
+      - REST APIs: Develop/4-Reference/Backend APIs.md
+      - Owl Core Python lib: Develop/4-Reference/Owl core library.md
+
+  - Technology:
+    - Athena Hybrid AI Technology: Technology/Hybrid AI.md
+    - Architecture for Enterprise AI: Technology/Enterprise AI.md
+    - Deployment Options: Technology/Deployment options.md
+
+  - Support: Support/index.md
+  - Contribute: Contribute/index.md
+  
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: 'https://github.com/AthenaDecisionSystems'
+    - icon: fontawesome/brands/linkedin
+      link: 'https://www.linkedin.com/company/athena-decision-systems/'
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
