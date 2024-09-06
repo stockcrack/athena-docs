@@ -4,7 +4,7 @@
 LLMs are very good at providing linguistic capabilities such as:
 
 - extracting data from text  
-- translataton  
+- translation  
 - intent detection  
 - sentiment analysis  
 - summarization  
