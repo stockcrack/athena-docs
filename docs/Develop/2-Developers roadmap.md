@@ -58,6 +58,22 @@ source setpython.sh
 Edit yaml files (or use admin console)
 
 ## Add hooks to custom code
+This is how we can declare a hook to override the default agent runner class
+```
+ibu_tax_agent:
+  agent_id: ibu_tax_agent
+  name: Tax Agent
+  description: OpenAI based agent with tool to call tax reduction eligibility service
+  runner_class_name: ibu.llm.agents.IBU_TaxAgent.IBU_TaxAgent                            # custom runner class
+  class_name: athena.llm.agents.base_chain_agent.OwlAgent
+  modelClassName: langchain_openai.ChatOpenAI
+  modelName: gpt-3.5-turbo-0125
+  prompt_ref: tax_first_intent_prompt
+  temperature: 0
+  top_k: 1
+  top_p: 1
+```
+
 ## Setup unit and integration tests
 To run all the unit tests:
 pytest -s tests/ut
@@ -66,13 +82,39 @@ To run the integration tests:
 ...
 
 ## Implement custom code
-Override default agent executor class
+We create a file ibu.llm.agents.IBU_TaxAgent.IBU_TaxAgent.py to implement the IBU_TaxAgent class
+```
+from athena.llm.agents.agent_mgr import OwlAgentDefaultRunner, OwlAgent, get_agent_manager
+
+class IBU_TaxAgent(OwlAgentDefaultRunner):
+    # your custom code here
+```
+
 
 Implement an agentic workflow using Langgraph
 
 ## Run tests
 ### Exploratory testing
-Use the out-of-the-box chatbot webapp
+
+There are two possible ways to run the out-of-the-box frontend webapp:
+
+- Build and run a Docker image for the frontend so that it will be started by `docker compose up -d` script
+- Run the chatbot webapp locally using node (version >= 18.18) and yarn
+
+If needed, install node: 
+```
+nvm install --lts
+nvm use --lts
+```
+
+If needed, install yarn: `npm install --global yarn`
+
+```
+cd owl-agent-interface
+yarn
+yarn dev
+```
+
 ### Unit testing
 To run all the unit tests:
 ```
@@ -80,9 +122,16 @@ pytest -s tests/ut
 ```
 
 ### Integration testing
-To run the integration tests:
-...
+Before running the integration tests, we need to start the Docker containers:  
+```
+cd $DEMO/deployment/local
+docker compose up -d
+```
 
+We can then run all the integration tests:
+```
+pytest -s tests/it
+```
 ## Package
 
 ## Deliver solution
