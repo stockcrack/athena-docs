@@ -1,6 +1,9 @@
 # Developer's roadmap to build a custom solution
 
+This chapter addresses how to develop a custom solution and how to maintain or add new features to the current backend.
+
 ## Understand which approach works well for a given use case
+
 LLMs are very good at providing linguistic capabilities such as:
 
 - extracting data from text  
@@ -40,6 +43,7 @@ Depending on the capabilities we want to provide to the employees that will inte
 - Run `owl-solution-create` script
 
 ## Create a Python virtual environment
+
 ```
 cd $DEMO/ibu_backend/src
 python3 -m venv .venv
@@ -47,6 +51,7 @@ source .venv/bin/activate
 ```
 
 ## Install dependencies
+
 Next, we need to install the Python library dependencies and set the Python path.
 ```
 pip install -r requirements.txt
