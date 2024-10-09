@@ -3,6 +3,7 @@ copyright: Copyright &copy; 2024 Athena Decision Systems
 repo_url: https://github.com/AthenaDecisionSystems/athena-docs
 extra_css: 
   - stylesheets/extra.css
+
 theme:
   name: material
   logo: assets/owl.png
@@ -48,9 +49,6 @@ nav:
     - Install and run on Windows: Get started/3-Install and run on Windows.md
 
   - Develop:
-    - Anatomy of a solution: Develop/1-Anatomy of a solution.md
-    - Developer's roadmap: Develop/2-Developers roadmap.md
-
     - Tutorials:
       - Overview: Develop/3-Tutorials/index.md
       - "Agent Backend":
@@ -68,6 +66,10 @@ nav:
       - "Frontend":
         - Customize the chatbot frontend: tutorials/blogs/basic.md
         - Integrate the Owl chatbot widget: tutorials/blogs/basic.md
+
+    - Guides:
+      - Anatomy of a solution: Develop/1-Anatomy of a solution.md
+      - Developer's roadmap: Develop/2-Developers roadmap.md
 
     - Reference:
       - REST APIs: Develop/4-Reference/Backend APIs.md
@@ -102,3 +104,4 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.mark
   - attr_list
+  - md_in_html
