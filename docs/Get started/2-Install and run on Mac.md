@@ -40,7 +40,7 @@ To install Colima, run:
 brew install colima
 ```
 
-If you have an Apple Silicon (M1/M2) Mac, you need to install Rosetta:
+If you have an Apple Silicon (M1/M2/M3/M4) Mac, you need to install Rosetta:
 
 ```bash
 softwareupdate --install-rosetta
